@@ -1,0 +1,10 @@
+<aspectj>
+    <weaver>
+        <include within="beans.repositories.ClassTest"/>
+        <include within="beans.* "/>
+    </weaver>
+
+    <aspects>
+        <aspect name="beans.MyAspect"/>
+    </aspects>
+</aspectj>

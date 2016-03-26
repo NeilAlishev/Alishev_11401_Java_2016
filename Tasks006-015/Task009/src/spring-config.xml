@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="cn0" class="beans.ComplexNumber">
+    </bean>
+    <bean id="cn5" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="5"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cn2" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="2"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cn1" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="1"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cn10" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="10"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cn7" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="7"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cn15" class="beans.ComplexNumber">
+        <constructor-arg name="real" value="15"/>
+        <constructor-arg name="im" value="0"/>
+    </bean>
+    <bean id="cm5" class="beans.ComplexMatrix2x2">
+        <constructor-arg ref="cn5"/>
+    </bean>
+    <bean id="cm2" class="beans.ComplexMatrix2x2">
+        <constructor-arg ref="cn2"/>
+    </bean>
+    <bean id="cm0" class="beans.ComplexMatrix2x2">
+    </bean>
+    <bean id="cm1" class="beans.ComplexMatrix2x2">
+        <constructor-arg ref="cn1"/>
+    </bean>
+    <bean id="cm5555" class="beans.ComplexMatrix2x2">
+        <constructor-arg index="0" ref="cn5"/>
+        <constructor-arg index="1" ref="cn5"/>
+        <constructor-arg index="2" ref="cn5"/>
+        <constructor-arg index="3" ref="cn5"/>
+    </bean>
+
+
+    <context:annotation-config/>
+    <context:component-scan base-package="beans"/>
+</beans>
