@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="fireArms" class="FireArms" scope="prototype"/>
+    <bean id="president" class="President" scope="prototype">
+        <constructor-arg name="age" value="50"/>
+        <constructor-arg name="name" value="Vladimir"/>
+    </bean>
+    <bean id="city" class="City"/>
+    <bean id="money" class="Money"/>
+    <bean id="oppositionLeader" class="OppositionLIder">
+        <constructor-arg name="age" value="35"/>
+        <constructor-arg name="name" value="Alexey"/>
+    </bean>
+    <bean id="person" class="Person">
+        <constructor-arg name="age" value="30"/>
+        <constructor-arg name="name" value="Someone"/>
+    </bean>
+    <bean id="politicalFigure" class="PoliticalFigure">
+        <constructor-arg name="age" value="60"/>
+        <constructor-arg name="name" value="Lavrov"/>
+    </bean>
+    <bean id="presidentsAssistant" class="PresidentsAssistant">
+        <constructor-arg name="age" value="50"/>
+        <constructor-arg name="name" value="Peskov"/>
+    </bean>
+    <bean id="riot" class="Riot"/>
+    <bean id="steelArms" class="SteelArms"/>
+    <bean id="supplements" class="Supplements"/>
+    <bean id="target" class="Target"/>
+</beans>
