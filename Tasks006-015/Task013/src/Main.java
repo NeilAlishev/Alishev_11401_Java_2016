@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-config.xml");
         Test test = ac.getBean(Test.class);
-        test.setEmail("nailalishev@yahoo.com");
+        test.setEmail("nailalishevoo.com");
     }
 
 }
