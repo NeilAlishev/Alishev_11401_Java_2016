@@ -18,3 +18,28 @@
 .forms .field {
     margin: 10px;
 }
+
+.help-block {
+    color: red;
+}
+
+.chooseBlock {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50pt;
+    padding: 10pt;
+    border: thin black solid;
+    text-align: center;
+}
+
+.profile-content {
+    float: left;
+    margin-top: 20pt;
+    margin-bottom: 50pt;
+}
+
+.profile-image {
+    margin-left: 25pt;
+    margin-bottom: 5pt;
+}

@@ -7,19 +7,32 @@
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/groups/new" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/static/**" access="permitAll"/>
+        <security:intercept-url pattern="/sign_in" access="permitAll"/>
+        <security:intercept-url pattern="/students/sign_up" access="permitAll"/>
+        <security:intercept-url pattern="/teachers/sign_up" access="permitAll" />
+        <security:intercept-url pattern="/choice" access="permitAll" />
+        <security:intercept-url pattern="/**" access="isAuthenticated()"/>
+        <security:form-login login-page="/sign_in"
+                             login-processing-url="/sign_in/process"
+                             username-parameter="email"
+                             password-parameter="password"
+                             default-target-url="/"
+                             always-use-default-target="true"
+                             authentication-failure-url="/sign_in?error=true"
+        />
+        <security:logout logout-url="/logout" logout-success-url="/sign_in"/>
+        <security:csrf disabled="true"/>
+        <security:access-denied-handler ref="accessDeniedHandler"/>
+    </security:http>
+
     <security:authentication-manager>
-        <security:authentication-provider>
-            <security:user-service>
-                <security:user name="Neil" password="gzhzvzx" authorities="ADMIN" />
-            </security:user-service>
-        </security:authentication-provider>
+        <security:authentication-provider ref="authProvider"/>
     </security:authentication-manager>
 
-    <security:http use-expressions="true">
-        <security:intercept-url pattern="/static/**" access="permitAll" />
-        <security:intercept-url pattern="/login" access="permitAll" />
-        <security:intercept-url pattern="/registration" access="permitAll" />
-        <security:intercept-url pattern="/**" access="isAuthenticated()" />
-        <security:form-login login-page="/login" />
-    </security:http>
+    <bean id="accessDeniedHandler" class="ru.kpfu.itis.NeilAlishev.sem1.security.AccessDeniedHandlerImpl" />
+
+    <bean id="authProvider" class="ru.kpfu.itis.NeilAlishev.sem1.security.AuthProviderImpl"/>
 </beans>

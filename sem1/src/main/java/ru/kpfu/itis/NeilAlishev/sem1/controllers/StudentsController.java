@@ -1,33 +1,29 @@
 package ru.kpfu.itis.NeilAlishev.sem1.controllers;
 
-import org.codehaus.jackson.node.JsonNodeFactory;
-import org.codehaus.jackson.node.ObjectNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
-import ru.kpfu.itis.NeilAlishev.sem1.service.StudentsService;
+import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created by neil on 11.04.16.
  */
-@Controller
-public class StudentsController {
-    @Autowired
-    private StudentsService studentsService;
-
-    @RequestMapping(value = "/student", method = RequestMethod.GET)
-    public ModelAndView getStudents() {
-        // Just to check if it works...
-        ModelAndView modelAndView = new ModelAndView("check");
-        Map<String, Object> map = modelAndView.getModel();
-        map.put("first_student", studentsService.getStudentByID(1).getName());
-        return modelAndView;
-    }
+//@Controller
+//public class StudentsController {
+//    @Autowired
+//    private StudentService studentsService;
+//
+//    @RequestMapping(value = "/student", method = RequestMethod.GET)
+//    public ModelAndView getStudents() {
+//        // Just to check if it works...
+//        ModelAndView modelAndView = new ModelAndView("check");
+//        Map<String, Object> map = modelAndView.getModel();
+//        map.put("first_student", studentsService.getStudentByID(1).getFullName());
+//        return modelAndView;
+//    }
 
 //    @RequestMapping("/{id}")
 //    public Student getStudent(@PathVariable("id") int id) {
@@ -43,4 +39,4 @@ public class StudentsController {
 //        return response;
 //    }
 
-}
+//}

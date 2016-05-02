@@ -1,16 +1,24 @@
 package ru.kpfu.itis.NeilAlishev.sem1.controllers;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.kpfu.itis.NeilAlishev.sem1.models.User;
 
 /**
- * Created by neil on 13.04.16.
+ * Nail Alishev
+ * 11-401
+ * sem1
  */
 @Controller
 public class HomeController {
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String homePage() {
+    public String homePage(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("current_user", user);
         return "index";
     }
 }

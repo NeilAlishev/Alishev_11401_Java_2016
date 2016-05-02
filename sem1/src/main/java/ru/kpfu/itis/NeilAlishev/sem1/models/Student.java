@@ -1,34 +1,49 @@
 package ru.kpfu.itis.NeilAlishev.sem1.models;
 
+import ru.kpfu.itis.NeilAlishev.sem1.models.enums.Role;
+
 import javax.persistence.*;
 
 /**
- * Created by neil on 11.04.16.
+ * @author Nail Alishev
+ *         11-401
+ *         sem1
  */
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student extends User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private String phoneNumber;
 
-    private String name;
+    private String interests;
 
-    public int getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getName() {
-        return name;
+    public String getInterests() {
+        return interests;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInterests(String interests) {
+        this.interests = interests;
     }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
 }
 

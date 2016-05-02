@@ -92,7 +92,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${current_user.getFullName()} <b
                     class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
@@ -106,7 +106,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
         </li>
@@ -114,7 +114,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li class="active">
-                <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                <a href="/"><i class="fa fa-fw fa-dashboard"></i> Профиль</a>
             </li>
             <li>
                 <a href="/charts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>

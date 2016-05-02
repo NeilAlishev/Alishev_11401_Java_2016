@@ -5,9 +5,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta fullName="viewport" content="width=device-width, initial-scale=1">
+    <meta fullName="description" content="">
+    <meta fullName="author" content="">
 
     <title>SB Admin - Bootstrap Admin Template</title>
 
@@ -295,7 +295,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Project name</a>
+                            <a class="navbar-brand" href="#">Project fullName</a>
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
@@ -337,7 +337,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">Project name</a>
+                            <a class="navbar-brand" href="#">Project fullName</a>
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">

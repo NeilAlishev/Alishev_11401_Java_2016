@@ -5,9 +5,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta fullName="viewport" content="width=device-width, initial-scale=1">
+    <meta fullName="description" content="">
+    <meta fullName="author" content="">
 
     <title>SB Admin - Bootstrap Admin Template</title>
 
@@ -278,17 +278,17 @@
                                 <label>Radio Buttons</label>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
+                                        <input type="radio" fullName="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
+                                        <input type="radio" fullName="optionsRadios" id="optionsRadios2" value="option2">Radio 2
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
+                                        <input type="radio" fullName="optionsRadios" id="optionsRadios3" value="option3">Radio 3
                                     </label>
                                 </div>
                             </div>
@@ -296,13 +296,13 @@
                             <div class="form-group">
                                 <label>Inline Radio Buttons</label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
+                                    <input type="radio" fullName="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
+                                    <input type="radio" fullName="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
+                                    <input type="radio" fullName="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
                                 </label>
                             </div>
 
