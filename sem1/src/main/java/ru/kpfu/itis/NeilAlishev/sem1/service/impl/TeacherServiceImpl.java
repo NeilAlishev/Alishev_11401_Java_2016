@@ -3,6 +3,7 @@ package ru.kpfu.itis.NeilAlishev.sem1.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Teacher;
 import ru.kpfu.itis.NeilAlishev.sem1.repositories.TeacherRepository;
 import ru.kpfu.itis.NeilAlishev.sem1.service.TeacherService;
@@ -33,5 +34,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void add(Teacher teacher) {
         teacherRepository.save(teacher);
+    }
+
+    @Override
+    public List<Teacher> findAllByGroup(Group group) {
+        return teacherRepository.findByGroups(group);
     }
 }

@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">SB Admin</a>
+        <a class="navbar-brand" href="/">Schooley</a>
     </div>
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
@@ -113,9 +113,18 @@
     </ul>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
+            <li>
                 <a href="/"><i class="fa fa-fw fa-dashboard"></i> Профиль</a>
             </li>
+            <#if current_user.getRole() == "ROLE_STUDENT">
+                <li>
+                    <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
+                </li>
+            <#else>
+                <li>
+                    <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
+                </li>
+            </#if>
             <li>
                 <a href="/charts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>

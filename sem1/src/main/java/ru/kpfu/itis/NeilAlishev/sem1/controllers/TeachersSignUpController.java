@@ -39,7 +39,7 @@ public class TeachersSignUpController {
                          BindingResult result) {
         teacherValidator.validate(teacherRegistrationForm, result);
         if (result.hasErrors()) {
-            return "student/sign_up";
+            return "teacher/sign_up";
         }
         Teacher teacher = TeacherRegistrationFormToTeacherTransformer
                 .transform(teacherRegistrationForm);

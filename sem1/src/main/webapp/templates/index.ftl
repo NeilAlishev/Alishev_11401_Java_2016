@@ -12,7 +12,7 @@
                     <#elseif current_user.getRole() == "ROLE_TEACHER">
                         <small>Учитель</small>
                     <#else>
-                        <small>Администратор</small>
+                        <small>Администратор</small>з
                     </#if>
                 </h1>
             </div>

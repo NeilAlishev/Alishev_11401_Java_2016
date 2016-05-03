@@ -16,7 +16,7 @@ public class Teacher extends User {
 
     private String contacts;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "teachers_groups", joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id"))
     private List<Group> groups;
