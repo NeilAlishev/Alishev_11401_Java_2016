@@ -26,6 +26,9 @@ public class Group {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groups")
     private List<Teacher> teachers;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Schedule schedule;
+
 
     public Long getId() {
         return id;
@@ -57,6 +60,14 @@ public class Group {
 
     public void setTeachers(List<Teacher> teachers) {
         this.teachers = teachers;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     @Override

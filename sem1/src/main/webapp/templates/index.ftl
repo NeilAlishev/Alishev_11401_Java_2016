@@ -12,7 +12,7 @@
                     <#elseif current_user.getRole() == "ROLE_TEACHER">
                         <small>Учитель</small>
                     <#else>
-                        <small>Администратор</small>з
+                        <small>Администратор</small>
                     </#if>
                 </h1>
             </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-        <#else>
+        <#elseif current_user.getRole() == "ROLE_TEACHER">
             <div class="row profile-content">
                 <img src="static/images/gray.png" class="img-circle profile-image" width="200px" height="200px"/>
                 <div class="col-lg-12">
@@ -44,6 +44,20 @@
                             <li><h4>${current_user.getQualification()}</h4></li>
                             <h3 style="color:dimgray;">Контакты:</h3>
                             <li><h4>${current_user.getContacts()}</h4></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <#else>
+            <div class="row profile-content">
+                <div class="col-lg-12">
+                    <h3>Статистика:</h3>
+                    <div>
+                        <ul>
+                            <h3 style="color:dimgray">Количество зарегистрированных учеников</h3>
+                            <li><h4>${number_of_students}</h4></li>
+                            <h3 style="color:dimgray">Количество зарегистрированных учителей</h3>
+                            <li><h4>${number_of_teachers}</h4></li>
                         </ul>
                     </div>
                 </div>

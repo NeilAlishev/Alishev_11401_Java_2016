@@ -17,7 +17,7 @@ public class Student extends User {
 
     private String interests;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "group_id")
     private Group group;
 

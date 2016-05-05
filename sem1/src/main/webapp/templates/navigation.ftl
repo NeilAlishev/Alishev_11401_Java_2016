@@ -92,7 +92,8 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ${current_user.getFullName()} <b
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                    class="fa fa-user"></i> ${current_user.getFullName()} <b
                     class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
@@ -116,15 +117,25 @@
             <li>
                 <a href="/"><i class="fa fa-fw fa-dashboard"></i> Профиль</a>
             </li>
-            <#if current_user.getRole() == "ROLE_STUDENT">
-                <li>
-                    <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
-                </li>
-            <#else>
-                <li>
-                    <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
-                </li>
-            </#if>
+        <#if current_user.getRole() == "ROLE_STUDENT">
+            <li>
+                <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
+            </li>
+        <#elseif current_user.getRole() == "ROLE_TEACHER">
+            <li>
+                <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
+            </li>
+        </#if>
+
+        <#if current_user.getRole() == "ROLE_STUDENT">
+            <li>
+                <a href="/student/schedule"><i class="fa fa-fw fa-table"></i>Мое расписание</a>
+            </li>
+        <#elseif current_user.getRole() == "ROLE_ADMIN">
+            <li>
+                <a href="/admin/schedule/add"><i class="fa fa-fw fa-table"></i>Добавить расписание</a>
+            </li>
+        </#if>
             <li>
                 <a href="/charts"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
             </li>

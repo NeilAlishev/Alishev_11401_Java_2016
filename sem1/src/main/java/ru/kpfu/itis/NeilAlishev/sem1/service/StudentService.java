@@ -1,5 +1,6 @@
 package ru.kpfu.itis.NeilAlishev.sem1.service;
 
+import ru.kpfu.itis.NeilAlishev.sem1.models.Schedule;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface StudentService {
     void add(Student student);
 
     void update(Student student);
+
+    Schedule getSchedule(Student student);
 }
