@@ -17,7 +17,7 @@
             </tr>
             </thead>
             <tbody>
-                <#list group.getStudents() as student>
+                <#list group.students as student>
                 <tr>
                     <td><h5>${student.getFullName()}</h5></td>
                     <td>100</td>

@@ -26,7 +26,7 @@
         <h3>${error}</h3>
     </div>
 </#if>
-    <form action="" method="POST">
+    <form method="POST">
         <div class="field">
             <br/>
             <h4 style="color:darkred; display: inline;">Формат: город_номерШколы_номерКласса_букваКласса</h4>

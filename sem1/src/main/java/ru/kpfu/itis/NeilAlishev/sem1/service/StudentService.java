@@ -1,5 +1,6 @@
 package ru.kpfu.itis.NeilAlishev.sem1.service;
 
+import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Schedule;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 
@@ -11,11 +12,9 @@ import java.util.List;
 public interface StudentService {
     List<Student> getAll();
 
-    Student getCurrent();
-
     Student getOne(Long id);
 
-    void add(Student student);
+    void addStudent(Student student, Group group);
 
     void update(Student student);
 

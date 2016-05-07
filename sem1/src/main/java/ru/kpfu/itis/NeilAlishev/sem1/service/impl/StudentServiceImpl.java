@@ -3,8 +3,10 @@ package ru.kpfu.itis.NeilAlishev.sem1.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Schedule;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
+import ru.kpfu.itis.NeilAlishev.sem1.repositories.GroupRepository;
 import ru.kpfu.itis.NeilAlishev.sem1.repositories.StudentRepository;
 import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 
@@ -20,6 +22,8 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentRepository studentsRepository;
+    @Autowired
+    GroupRepository groupRepository;
 
     @Override
     public List<Student> getAll() {
@@ -32,15 +36,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getCurrent() {
-        return null;
-    }
-
-
-    @Override
-    public void add(Student student) {
+    public void addStudent(Student student, Group group) {
+        group = groupRepository.findOne(group.getId());
+        student.setGroup(group);
         studentsRepository.save(student);
     }
+
 
     @Override
     public void update(Student student) {

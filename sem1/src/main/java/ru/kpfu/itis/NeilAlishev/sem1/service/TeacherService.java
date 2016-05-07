@@ -17,5 +17,7 @@ public interface TeacherService {
 
     void add(Teacher teacher);
 
+    void addGroup(Teacher teacher, Group group);
+
     List<Teacher> findAllByGroup(Group group);
 }

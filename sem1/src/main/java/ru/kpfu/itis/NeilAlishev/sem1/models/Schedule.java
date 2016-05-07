@@ -22,9 +22,6 @@ public class Schedule {
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<SchoolDay> schoolDays = new HashSet<>();
 
-    @OneToOne
-    private Group group;
-
     public Long getId() {
         return id;
     }
@@ -39,13 +36,5 @@ public class Schedule {
 
     public void setSchoolDays(Set<SchoolDay> schoolDays) {
         this.schoolDays = schoolDays;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 }

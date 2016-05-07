@@ -39,7 +39,7 @@ public class GroupsController {
         if (result.hasErrors()) {
             return "groups/new";
         }
-        groupService.create(GroupCreationFormToGroupTransformer
+        groupService.createOrUpdate(GroupCreationFormToGroupTransformer
                 .transform(groupCreationForm));
         return "redirect:/groups/new";
     }

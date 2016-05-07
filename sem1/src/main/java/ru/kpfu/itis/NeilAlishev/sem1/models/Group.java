@@ -3,6 +3,7 @@ package ru.kpfu.itis.NeilAlishev.sem1.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Nail Alishev
@@ -20,13 +21,13 @@ public class Group {
 
     private String name;
 
-    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-    private List<Student> students = new ArrayList<>();
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Student> students;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groups")
-    private List<Teacher> teachers;
+    private Set<Teacher> teachers;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Schedule schedule;
 
 
@@ -46,19 +47,19 @@ public class Group {
         this.name = name;
     }
 
-    public List<Student> getStudents() {
+    public Set<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(Set<Student> students) {
         this.students = students;
     }
 
-    public List<Teacher> getTeachers() {
+    public Set<Teacher> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
+    public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
     }
 

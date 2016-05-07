@@ -18,6 +18,7 @@
     <title>Добавление группы</title>
 </head>
 <body>
+<a href="/" style="float:left; margin-left: 20pt;"><h4>Обратно</h4></a>
 <div class="forms">
     <h2>Добавление группы</h2>
 

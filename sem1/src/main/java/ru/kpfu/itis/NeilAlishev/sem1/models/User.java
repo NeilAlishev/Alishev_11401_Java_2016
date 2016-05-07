@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(name = "users_gen", sequenceName = "users_seq", allocationSize = 1)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name="users")
 public class User {
 
     @Id

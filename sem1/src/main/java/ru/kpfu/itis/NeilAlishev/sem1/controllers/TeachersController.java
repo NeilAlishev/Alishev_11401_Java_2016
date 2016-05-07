@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
+import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Teacher;
 import ru.kpfu.itis.NeilAlishev.sem1.models.User;
 import ru.kpfu.itis.NeilAlishev.sem1.service.GroupService;
@@ -46,15 +47,14 @@ public class TeachersController {
     @RequestMapping(value = "/groups/add", method = RequestMethod.POST)
     public String addGroups(Model model, @RequestParam(value = "group") String group) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Group current_group = groupService.findByName(group);
-        Teacher current_teacher = teacherService.getTeacherByID(user.getId());
-        if (current_teacher.getGroups().contains(current_group)) {
+        Group currentGroup = groupService.findByName(group);
+        Teacher currentTeacher = teacherService.getTeacherByID(user.getId());
+        if (currentTeacher.getGroups().contains(currentGroup)) {
             model.addAttribute("error", "Вы уже добавляли эту группу");
             model.addAttribute("groups", groupService.findAll());
             return "/teacher/addGroup";
         }
-        current_teacher.getGroups().add(current_group);
-        teacherService.add(current_teacher);
+        teacherService.addGroup(currentTeacher, currentGroup);
         return "redirect:/teacher/groups";
     }
 }

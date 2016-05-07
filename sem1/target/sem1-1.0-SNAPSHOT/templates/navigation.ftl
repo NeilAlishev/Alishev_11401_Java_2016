@@ -121,17 +121,18 @@
             <li>
                 <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
             </li>
+            <li>
+                <a href="/student/schedule"><i class="fa fa-fw fa-table"></i>Мое расписание</a>
+            </li>
         <#elseif current_user.getRole() == "ROLE_TEACHER">
             <li>
                 <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
             </li>
-        </#if>
-
-        <#if current_user.getRole() == "ROLE_STUDENT">
+        <#else>
             <li>
-                <a href="/student/schedule"><i class="fa fa-fw fa-table"></i>Мое расписание</a>
+                <a href="/groups/new"><i class="fa fa-fw fa-table"></i>Добавить группу</a>
             </li>
-        <#elseif current_user.getRole() == "ROLE_ADMIN">
+
             <li>
                 <a href="/admin/schedule/add"><i class="fa fa-fw fa-table"></i>Добавить расписание</a>
             </li>

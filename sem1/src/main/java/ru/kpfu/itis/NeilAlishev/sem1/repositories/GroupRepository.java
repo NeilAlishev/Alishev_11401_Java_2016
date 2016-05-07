@@ -18,5 +18,5 @@ import java.util.List;
 public interface GroupRepository extends JpaRepository<Group, Long> {
     Group findOneByName(String name);
 
-    List<Group> findByTeachers(Teacher teacher);
+    List<Group> findByTeachers_Id(Long Id);
 }

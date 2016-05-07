@@ -15,18 +15,18 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>Добавление группы</title>
+    <title>Оценки</title>
 </head>
 <body>
-<a href="/teacher/groups" style="float:left; margin-left: 20pt;"><h4>Обратно</h4></a>
+<a href="/" style="float:left; margin-left: 20pt;"><h4>Обратно</h4></a>
 <div class="forms">
-    <h1 style="text-align: center">Добавление группы</h1>
+    <h1 style="text-align: center">Поставить оценку</h1>
 <#if error??>
     <div class="help-block" style="color: red;">
         <h3>${error}</h3>
     </div>
 </#if>
-    <form method="POST">
+    <form action="" method="POST">
         <div class="field">
             <br/>
             <h4 style="color:darkred; display: inline;">Формат: город_номерШколы_номерКласса_букваКласса</h4>
@@ -38,14 +38,16 @@
             </#list>
             </select>
         </div>
+        <div class="field">
+            <input type="text" name="subject" placeholder="Предмет"/>
+        </div>
+        <#--Add date and mark-->
         <div class="actions" style="margin-top:30px;">
             <input type="submit" value="Добавить группу" class="btn btn-md btn-block"/>
         </div>
     </form>
 </div>
 <script src="/static/js/jquery-2.1.4.min.js"></script>
-<script src="/static/js/maskedinput.min.js"></script>
-<script src="/static/js/phone_number_mask.js"></script>
 <script src="/static/js/select2/select2.full.min.js"></script>
 <script src="/static/js/select2/ru.js"></script>
 <script type="text/javascript">

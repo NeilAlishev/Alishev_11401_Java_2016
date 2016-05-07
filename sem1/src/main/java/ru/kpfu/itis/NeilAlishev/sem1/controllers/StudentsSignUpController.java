@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 import ru.kpfu.itis.NeilAlishev.sem1.repositories.GroupRepository;
+import ru.kpfu.itis.NeilAlishev.sem1.service.GroupService;
 import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 import ru.kpfu.itis.NeilAlishev.sem1.util.StudentRegistrationForm;
 import ru.kpfu.itis.NeilAlishev.sem1.util.StudentRegistrationFormToStudentTransformer;
@@ -32,13 +33,13 @@ public class StudentsSignUpController {
     private StudentValidator studentValidator;
 
     @Autowired
-    private GroupRepository groupRepository;
+    private GroupService groupService;
 
 
     @RequestMapping(value = "/students/sign_up", method = RequestMethod.GET)
     public String getSignUp(Model model) {
         model.addAttribute("student", new StudentRegistrationForm());
-        List<Group> groups = groupRepository.findAll();
+        List<Group> groups = groupService.findAll();
         model.addAttribute("groups", groups);
         return "student/sign_up";
     }
@@ -48,15 +49,13 @@ public class StudentsSignUpController {
                          BindingResult result) {
         studentValidator.validate(studentRegistrationForm, result);
         if (result.hasErrors()) {
-            model.addAttribute("groups", groupRepository.findAll());
+            model.addAttribute("groups", groupService.findAll());
             return "student/sign_up";
         }
         Student student = StudentRegistrationFormToStudentTransformer
                 .transform(studentRegistrationForm);
-        Group group = groupRepository.findOneByName(studentRegistrationForm.getGroup());
-        student.setGroup(group);
-        //group.getStudents().add(student);
-        studentService.add(student);
+        Group group = groupService.findByName(studentRegistrationForm.getGroup());
+        studentService.addStudent(student, group);
         return "redirect:/sign_in";
     }
 }
