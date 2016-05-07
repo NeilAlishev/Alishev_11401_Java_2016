@@ -19,6 +19,8 @@ public class Mark {
 
     private String subject;
 
+    private Integer score;
+
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
@@ -68,5 +70,13 @@ public class Mark {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

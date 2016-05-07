@@ -1,10 +1,8 @@
 package ru.kpfu.itis.NeilAlishev.sem1.models;
 
-import ru.kpfu.itis.NeilAlishev.sem1.models.enums.Role;
-
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Nail Alishev
@@ -24,7 +22,7 @@ public class Student extends User {
     private Group group;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "student")
-    private List<Mark> marks = new ArrayList<>();
+    private Set<Mark> marks;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -50,11 +48,11 @@ public class Student extends User {
         this.group = group;
     }
 
-    public List<Mark> getMarks() {
+    public Set<Mark> getMarks() {
         return marks;
     }
 
-    public void setMarks(List<Mark> marks) {
+    public void setMarks(Set<Mark> marks) {
         this.marks = marks;
     }
 }

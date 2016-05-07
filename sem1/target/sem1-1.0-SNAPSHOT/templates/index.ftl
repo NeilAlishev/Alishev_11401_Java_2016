@@ -30,6 +30,8 @@
                             <li><h4>${current_user.getPhoneNumber()}</h4></li>
                             <h3 style="color:dimgray;">Интересы</h3>
                             <li><h4>${current_user.getInterests()}</h4></li>
+                            <h3 style="color:dimgray;">Средний балл по всем предметам</h3>
+                            <li><h4>${average}</h4></li>
                         </ul>
                     </div>
                 </div>

@@ -19,4 +19,6 @@ public interface StudentService {
     void update(Student student);
 
     Schedule getSchedule(Student student);
+
+    double getAverageScore(Long id);
 }

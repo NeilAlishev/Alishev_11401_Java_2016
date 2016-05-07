@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
+import ru.kpfu.itis.NeilAlishev.sem1.models.Mark;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Schedule;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 import ru.kpfu.itis.NeilAlishev.sem1.repositories.GroupRepository;
@@ -11,6 +12,7 @@ import ru.kpfu.itis.NeilAlishev.sem1.repositories.StudentRepository;
 import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 
 import java.util.List;
+import java.util.OptionalDouble;
 
 /**
  * @author Nail Alishev
@@ -54,5 +56,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Schedule getSchedule(Student student) {
         return studentsRepository.findOne(student.getId()).getGroup().getSchedule();
+    }
+
+    @Override
+    public double getAverageScore(Long id) {
+        Student currentStudent = studentsRepository.findOne(id);
+        OptionalDouble average = currentStudent.getMarks()
+                .stream()
+                .mapToDouble(Mark::getScore)
+                .average();
+        return average.isPresent() ? average.getAsDouble() : 0;
     }
 }

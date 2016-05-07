@@ -122,11 +122,20 @@
                 <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
             </li>
             <li>
+                <a href="/student/classmates"><i class="fa fa-fw fa-file"></i>Мой класс</a>
+            </li>
+            <li>
                 <a href="/student/schedule"><i class="fa fa-fw fa-table"></i>Мое расписание</a>
+            </li>
+            <li>
+                <a href="/student/marks"><i class="fa fa-fw fa-edit"></i>Мои оценки</a>
             </li>
         <#elseif current_user.getRole() == "ROLE_TEACHER">
             <li>
                 <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
+            </li>
+            <li>
+                <a href="/marks/new"><i class="fa fa-fw fa-edit"></i>Поставить оценку</a>
             </li>
         <#else>
             <li>

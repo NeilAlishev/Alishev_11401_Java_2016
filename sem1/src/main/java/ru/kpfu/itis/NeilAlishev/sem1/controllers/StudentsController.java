@@ -12,11 +12,7 @@ import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 import ru.kpfu.itis.NeilAlishev.sem1.service.TeacherService;
 import ru.kpfu.itis.NeilAlishev.sem1.util.SchoolDay;
 
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Nail Alishev
@@ -50,5 +46,35 @@ public class StudentsController {
         Collections.sort(schoolDays);
         model.addAttribute("schoolDays", schoolDays);
         return "student/schedule";
+    }
+
+    @RequestMapping(value = "/marks", method = RequestMethod.GET)
+    public String getMarks(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("current_user", user);
+        Student currentStudent = studentService.getOne(user.getId());
+        model.addAttribute("marks", currentStudent.getMarks());
+        return "student/marks";
+    }
+
+    @RequestMapping(value = "/classmates", method = RequestMethod.GET)
+    public String getClassmates(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("current_user",user);
+        Student currentStudent = studentService.getOne(user.getId());
+
+        TreeMap<Double, String> studentsMap = new TreeMap<>(Collections.reverseOrder());
+        currentStudent.getGroup().getStudents().forEach(
+                student -> studentsMap.put(studentService.getAverageScore(student.getId()), student.getFullName())
+        );
+
+        LinkedHashMap<String, String> studentsMapForFreemarker = new LinkedHashMap<>();
+
+        studentsMap.entrySet().forEach(
+                entry -> studentsMapForFreemarker.put(String.valueOf(entry.getKey()), entry.getValue())
+        );
+
+        model.addAttribute("studentsMap", studentsMapForFreemarker);
+        return "student/classmates";
     }
 }

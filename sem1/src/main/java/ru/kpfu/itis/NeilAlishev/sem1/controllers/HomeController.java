@@ -32,6 +32,9 @@ public class HomeController {
             model.addAttribute("number_of_teachers", teacherService.getTeachers().size());
             model.addAttribute("number_of_students", studentService.getAll().size());
         }
+        if (user.getRole().equals(Role.ROLE_STUDENT)) {
+            model.addAttribute("average", studentService.getAverageScore(user.getId()));
+        }
         return "index";
     }
 }
