@@ -51,8 +51,6 @@ public class MarksController {
             markService.addMark(currentTeacher, request);
             model.addAttribute("info", "Вы успешно поставили оценку");
         }
-
         return "marks/new";
     }
-
 }

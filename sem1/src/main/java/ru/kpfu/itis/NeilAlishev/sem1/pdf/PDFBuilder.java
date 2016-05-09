@@ -33,9 +33,12 @@ public class PDFBuilder extends AbstractITextPdfView {
         table.setWidths(new float[]{3.0f, 2.0f, 2.0f, 2.0f});
         table.setSpacingBefore(10);
 
+        FontFactory.register("DejaVuSansCondensed.ttf", "MY_FONT");
+
         // define font for table header row
-        Font font = FontFactory.getFont(BaseFont.IDENTITY_H);
-        font.setColor(BaseColor.WHITE);
+        //Font font = FontFactory.getFont(FontFactory.TIMES_ROMAN, "UTF-8", BaseFont.EMBEDDED);
+        Font font = FontFactory.getFont("MY_FONT", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+        font.setColor(BaseColor.BLACK);
 
         // define table header cell
         PdfPCell cell = new PdfPCell();
@@ -56,9 +59,14 @@ public class PDFBuilder extends AbstractITextPdfView {
         table.addCell(cell);
 
         // write table row data
+        cell = new PdfPCell();
+        cell.setBackgroundColor(BaseColor.WHITE);
+        cell.setPadding(5);
         for (Mark mark : listMarks) {
-            table.addCell(mark.getSubject());
-            table.addCell(mark.getTeacher().getFullName());
+            cell.setPhrase(new Phrase(mark.getSubject(), font));
+            table.addCell(cell);
+            cell.setPhrase(new Phrase(mark.getTeacher().getFullName(), font));
+            table.addCell(cell);
             table.addCell(mark.getScore().toString());
             table.addCell(mark.getCreatedAt().toString());
         }

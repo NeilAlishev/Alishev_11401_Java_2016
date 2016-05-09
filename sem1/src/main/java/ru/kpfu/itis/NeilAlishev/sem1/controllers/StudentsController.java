@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
+import ru.kpfu.itis.NeilAlishev.sem1.models.Mark;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 import ru.kpfu.itis.NeilAlishev.sem1.models.User;
 import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
@@ -53,14 +54,14 @@ public class StudentsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
-        model.addAttribute("marks", currentStudent.getMarks());
+        model.addAttribute("marks", firstTenMarks(currentStudent.getMarks()));
         return "student/marks";
     }
 
     @RequestMapping(value = "/classmates", method = RequestMethod.GET)
     public String getClassmates(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("current_user",user);
+        model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
 
         TreeMap<Double, String> studentsMap = new TreeMap<>(Collections.reverseOrder());
@@ -76,5 +77,11 @@ public class StudentsController {
 
         model.addAttribute("studentsMap", studentsMapForFreemarker);
         return "student/classmates";
+    }
+
+    private List firstTenMarks(Set<Mark> input) {
+        List<Mark> marksList = new ArrayList<>(input);
+        Collections.sort(marksList);
+        return marksList.size() <= 10 ? marksList : marksList.subList(0, 10);
     }
 }

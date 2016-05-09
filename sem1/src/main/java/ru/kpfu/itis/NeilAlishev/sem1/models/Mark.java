@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity
 @Table(name = "marks")
 @SequenceGenerator(name = "marks_gen", sequenceName = "marks_seq", allocationSize = 1)
-public class Mark {
+public class Mark implements Comparable<Mark> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "marks_gen")
@@ -78,5 +78,11 @@ public class Mark {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+
+    @Override
+    public int compareTo(Mark o) {
+        return this.getCreatedAt().compareTo(o.getCreatedAt());
     }
 }
