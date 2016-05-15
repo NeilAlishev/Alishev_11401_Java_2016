@@ -24,6 +24,9 @@ public class Teacher extends User {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "teacher")
     private Set<Mark> marks;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "teacher")
+    private Set<Homework> homeworks;
+
     public String getQualification() {
         return qualification;
     }
@@ -54,6 +57,14 @@ public class Teacher extends User {
 
     public void setMarks(Set<Mark> marks) {
         this.marks = marks;
+    }
+
+    public Set<Homework> getHomeworks() {
+        return homeworks;
+    }
+
+    public void setHomeworks(Set<Homework> homeworks) {
+        this.homeworks = homeworks;
     }
 }
 

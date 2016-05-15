@@ -13,6 +13,11 @@
     <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/css/custom.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/static/css/select2/select2.min.css" type="text/css"/>
+    <#if customCSS?size != 0>
+        <#list customCSS as stylesheet>
+        ${stylesheet}
+        </#list>
+    </#if>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,9 +39,11 @@
 </div>
 <script src="/static/js/jquery-2.1.4.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/morris/raphael.min.js"></script>
-<script src="/static/js/morris/morris.min.js"></script>
-<script src="/static/js/morris/morris-data.js"></script>
+    <#if customScript?size != 0>
+        <#list customScript as script>
+        ${script}
+        </#list>
+    </#if>
 </body>
 </html>
 </#macro>

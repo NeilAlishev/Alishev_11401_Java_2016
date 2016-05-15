@@ -119,31 +119,34 @@
             </li>
         <#if current_user.getRole() == "ROLE_STUDENT">
             <li>
-                <a href="/student/teachers"><i class="fa fa-fw fa-bar-chart-o"></i>Мои учителя</a>
+                <a href="/student/teachers"><i class="fa fa-fw fa-desktop"></i> Мои учителя</a>
             </li>
             <li>
-                <a href="/student/classmates"><i class="fa fa-fw fa-file"></i>Мой класс</a>
+                <a href="/student/classmates"><i class="fa fa-fw fa-file"></i> Мой класс</a>
             </li>
             <li>
-                <a href="/student/schedule"><i class="fa fa-fw fa-table"></i>Мое расписание</a>
+                <a href="/student/schedule"><i class="fa fa-fw fa-table"></i> Мое расписание</a>
             </li>
             <li>
-                <a href="/student/marks"><i class="fa fa-fw fa-edit"></i>Мои оценки</a>
+                <a href="/student/marks"><i class="fa fa-fw fa-edit"></i> Мои оценки</a>
+            </li>
+            <li>
+                <a href="/statistics"><i class="fa fa-fw fa-bar-chart-o"></i> Моя статистика</a>
             </li>
         <#elseif current_user.getRole() == "ROLE_TEACHER">
             <li>
-                <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i>Мои ученики</a>
+                <a href="/teacher/groups"><i class="fa fa-fw fa-bar-chart-o"></i> Мои ученики</a>
             </li>
             <li>
-                <a href="/marks/new"><i class="fa fa-fw fa-edit"></i>Поставить оценку</a>
+                <a href="/marks/new"><i class="fa fa-fw fa-edit"></i> Поставить оценку</a>
             </li>
         <#else>
             <li>
-                <a href="/groups/new"><i class="fa fa-fw fa-table"></i>Добавить группу</a>
+                <a href="/groups/new"><i class="fa fa-fw fa-table"></i> Добавить группу</a>
             </li>
 
             <li>
-                <a href="/admin/schedule/add"><i class="fa fa-fw fa-table"></i>Добавить расписание</a>
+                <a href="/admin/schedule/add"><i class="fa fa-fw fa-table"></i> Добавить расписание</a>
             </li>
         </#if>
             <li>

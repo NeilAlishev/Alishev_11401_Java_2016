@@ -27,6 +27,9 @@ public class Group {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "groups")
     private Set<Teacher> teachers;
 
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "group")
+    private Set<Homework> homeworks;
+
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Schedule schedule;
 
@@ -69,6 +72,14 @@ public class Group {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public Set<Homework> getHomeworks() {
+        return homeworks;
+    }
+
+    public void setHomeworks(Set<Homework> homeworks) {
+        this.homeworks = homeworks;
     }
 
     @Override

@@ -79,9 +79,10 @@ public class StudentsController {
         return "student/classmates";
     }
 
+
     private List firstTenMarks(Set<Mark> input) {
         List<Mark> marksList = new ArrayList<>(input);
-        Collections.sort(marksList);
+        Collections.sort(marksList, Collections.reverseOrder());
         return marksList.size() <= 10 ? marksList : marksList.subList(0, 10);
     }
 }
