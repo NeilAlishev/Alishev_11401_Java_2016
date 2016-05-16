@@ -36,7 +36,7 @@
                             <input type="hidden" name="groupId" value="${group.getId()}" class="groupId"/>
                             <div class="actions" style="margin-top:30px;">
                                 <input type="submit" value="Добавить домашнее задание"
-                                       class="btn btn-md btn-block"/>
+                                       class="btn btn-md btn-block homework-submit-${group.getId()}"/>
                             </div>
                         </form>
                     </div>

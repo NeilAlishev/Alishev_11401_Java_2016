@@ -9,6 +9,7 @@ import ru.kpfu.itis.NeilAlishev.sem1.models.Group;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Mark;
 import ru.kpfu.itis.NeilAlishev.sem1.models.Student;
 import ru.kpfu.itis.NeilAlishev.sem1.models.User;
+import ru.kpfu.itis.NeilAlishev.sem1.models.enums.Role;
 import ru.kpfu.itis.NeilAlishev.sem1.service.StudentService;
 import ru.kpfu.itis.NeilAlishev.sem1.service.TeacherService;
 import ru.kpfu.itis.NeilAlishev.sem1.util.SchoolDay;
@@ -33,6 +34,11 @@ public class StudentsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
+
+        if(user.getRole().equals(Role.ROLE_STUDENT))
+            model.addAttribute("homework", currentStudent.getGroup().getHomeworks());
+
+
         Group currentGroup = currentStudent.getGroup();
         model.addAttribute("teachers", teacherService.findAllByGroup(currentGroup));
         return "student/teachers";
@@ -43,6 +49,10 @@ public class StudentsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
+
+        if(user.getRole().equals(Role.ROLE_STUDENT))
+            model.addAttribute("homework", currentStudent.getGroup().getHomeworks());
+
         List<SchoolDay> schoolDays = new ArrayList<>(studentService.getSchedule(currentStudent).getSchoolDays());
         Collections.sort(schoolDays);
         model.addAttribute("schoolDays", schoolDays);
@@ -54,6 +64,10 @@ public class StudentsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
+
+        if(user.getRole().equals(Role.ROLE_STUDENT))
+            model.addAttribute("homework", currentStudent.getGroup().getHomeworks());
+
         model.addAttribute("marks", firstTenMarks(currentStudent.getMarks()));
         return "student/marks";
     }
@@ -63,6 +77,9 @@ public class StudentsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("current_user", user);
         Student currentStudent = studentService.getOne(user.getId());
+
+        if(user.getRole().equals(Role.ROLE_STUDENT))
+            model.addAttribute("homework", currentStudent.getGroup().getHomeworks());
 
         TreeMap<Double, String> studentsMap = new TreeMap<>(Collections.reverseOrder());
         currentStudent.getGroup().getStudents().forEach(

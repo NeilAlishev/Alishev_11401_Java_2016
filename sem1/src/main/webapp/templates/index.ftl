@@ -65,24 +65,6 @@
                 </div>
             </div>
         </#if>
-        <#if current_user.getRole() == "ROLE_STUDENT">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 style="text-align: center;">Моя статистика</h2>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i>Статистика оценок</h3>
-                        </div>
-                    <#--<div class="panel-body">-->
-                    <#--<div id="morris-area-chart"></div>-->
-                    <#--</div>-->
-                        <#--<div class="panel-body">-->
-                            <#--<div id="chart_div"></div>-->
-                        <#--</div>-->
-                    </div>
-                </div>
-            </div>
-        </#if>
     </div>
 </div>
 </#macro>

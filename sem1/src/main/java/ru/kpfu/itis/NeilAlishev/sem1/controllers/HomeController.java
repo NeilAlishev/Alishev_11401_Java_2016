@@ -34,6 +34,8 @@ public class HomeController {
         }
         if (user.getRole().equals(Role.ROLE_STUDENT)) {
             model.addAttribute("average", studentService.getAverageScore(user.getId()));
+            model.addAttribute("homework", studentService.getOne(user.getId()).getGroup().getHomeworks());
+
         }
         return "index";
     }

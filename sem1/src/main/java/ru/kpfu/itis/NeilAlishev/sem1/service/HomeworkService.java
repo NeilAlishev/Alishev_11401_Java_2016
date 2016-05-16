@@ -10,5 +10,5 @@ import javax.servlet.http.HttpServletRequest;
  *         sem1
  */
 public interface HomeworkService {
-    public boolean saveHomework(HttpServletRequest request);
+    public boolean saveHomework(HttpServletRequest request, Long teacherId);
 }
