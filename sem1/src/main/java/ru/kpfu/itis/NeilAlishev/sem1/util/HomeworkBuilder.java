@@ -32,9 +32,10 @@ public class HomeworkBuilder {
         String[] ddMmYy = request.getParameter("deadline").split("-");
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(ddMmYy[0]));
-        cal.set(Calendar.MONTH, Integer.parseInt(ddMmYy[1]));
+        cal.set(Calendar.MONTH, Integer.parseInt(ddMmYy[1]) - 1); // Разобраться почему так
         cal.set(Calendar.YEAR, Integer.parseInt(ddMmYy[2]));
         Date dateRepresentation = cal.getTime();
+        System.out.println(dateRepresentation.toString());
         currentHomework.setDeadline(dateRepresentation);
 
         return currentHomework;

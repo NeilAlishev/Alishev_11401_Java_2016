@@ -3,7 +3,7 @@
 <h1 style="text-align: center">Мои учителя</h1>
 
     <#if teachers?has_content>
-    <table class="table table-bordered table-hover group-table">
+    <table class="table table-bordered table-hover group-table center-table">
         <thead>
         <tr>
             <th>

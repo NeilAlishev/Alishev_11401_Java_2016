@@ -46,7 +46,7 @@ public class MarkServiceImpl implements MarkService {
         String[] ddMmYy = request.getParameter("date").split("-");
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(ddMmYy[0]));
-        cal.set(Calendar.MONTH, Integer.parseInt(ddMmYy[1]));
+        cal.set(Calendar.MONTH, Integer.parseInt(ddMmYy[1]) - 1); // Разобраться почему так
         cal.set(Calendar.YEAR, Integer.parseInt(ddMmYy[2]));
         Date dateRepresentation = cal.getTime();
         newMark.setCreatedAt(dateRepresentation);

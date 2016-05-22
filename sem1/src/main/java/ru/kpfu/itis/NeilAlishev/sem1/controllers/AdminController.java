@@ -56,6 +56,7 @@ public class AdminController {
             return "/admin/addSchedule";
         }
         groupService.addScheduleToGroup(group, request);
-        return null;
+        model.addAttribute("info", "Вы успешно добавили расписание");
+        return "/admin/addSchedule";
     }
 }

@@ -3,7 +3,7 @@
 <h1 style="text-align: center">Мое расписание</h1>
 
     <#if schoolDays?has_content>
-    <table class="table table-bordered table-hover group-table">
+    <table class="table table-bordered table-hover group-table center-table">
         <#list schoolDays as schoolDay>
             <thead>
             <tr class="info">

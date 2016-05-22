@@ -36,7 +36,7 @@ public class TeacherValidator implements Validator {
             errors.rejectValue("email", "", "Этот email уже используется");
         }
         if (!teacherForm.getPassword().equals(teacherForm.getPasswordConfirmation())) {
-            errors.rejectValue("PasswordConfirmation", "", "Пароли не совпадают");
+            errors.rejectValue("passwordConfirmation", "", "Пароли не совпадают");
         }
     }
 }

@@ -33,7 +33,7 @@ public class GroupsController {
     }
 
     @RequestMapping(value = "/groups/create", method = RequestMethod.POST)
-    public String createGroup(@ModelAttribute("group") @Valid GroupCreationForm groupCreationForm,
+    public String createGroup(Model model, @ModelAttribute("group") @Valid GroupCreationForm groupCreationForm,
                               BindingResult result) {
         groupValidator.validate(groupCreationForm, result);
         if (result.hasErrors()) {
@@ -41,6 +41,7 @@ public class GroupsController {
         }
         groupService.createOrUpdate(GroupCreationFormToGroupTransformer
                 .transform(groupCreationForm));
-        return "redirect:/groups/new";
+        model.addAttribute("info", "Вы успешно добавили группу");
+        return "groups/new";
     }
 }

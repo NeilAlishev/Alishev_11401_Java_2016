@@ -3,7 +3,7 @@
 <h1 style="text-align: center">Мои оценки</h1>
 <p>Здесь отображаются ваши последние 10 оценок</p>
     <#if marks?has_content>
-    <table class="table table-bordered table-hover group-table">
+    <table class="table table-bordered table-hover group-table center-table">
         <thead>
         <tr>
             <th>

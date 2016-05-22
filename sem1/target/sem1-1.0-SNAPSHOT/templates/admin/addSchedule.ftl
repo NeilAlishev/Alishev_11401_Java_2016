@@ -19,6 +19,11 @@
     <title>Добавление расписания</title>
 </head>
 <body>
+<#if info??>
+<div class="alert alert-success" role="alert" style="text-align: center;">
+${info}
+</div>
+</#if>
 <a href="/" style="float:left; margin-left: 20pt;"><h4>Обратно</h4></a>
 <div class="schedule-form">
     <form action="/admin/schedule/add" method="POST">

@@ -50,12 +50,19 @@
     margin-bottom: 20pt;
 }
 
-.schedule-form{
+.schedule-form {
     text-align: center;
-    width:50%;
-    margin-left:auto;
-    margin-right:auto;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30pt;
     border: black thin solid;
     padding-bottom: 15pt;
+}
+
+.center-table {
+    margin: auto;
+    width: 90%;
+    margin-top: 30pt;
+    margin-bottom: 30pt;
 }
