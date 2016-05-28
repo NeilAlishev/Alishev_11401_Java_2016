@@ -53,6 +53,7 @@
                 marks = data;
             }
     );
+
     function drawCurveTypes() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'X');
