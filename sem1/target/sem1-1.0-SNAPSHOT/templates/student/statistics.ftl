@@ -51,52 +51,52 @@
     var marks;
     $.get("/marks/getMarksJSON", function (data) {
                 marks = data;
+                function drawCurveTypes() {
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'X');
+                    data.addColumn('number', 'Средний балл за день');
+                    var marksMap = new Map();
+                    marks.forEach(function (mark) {
+                        if (marksMap.has(mark.date)) {
+                            marksMap.get(mark.date).push(mark.score);
+                        } else {
+                            marksMap.set(mark.date, []);
+                            marksMap.get(mark.date).push(mark.score);
+                        }
+                    });
+                    for (var key of marksMap.keys()) {
+                        marksMap.set(key, (marksMap.get(key).reduce(function (a, b) {
+                                    return a + b;
+                                })) / marksMap.get(key).length
+                        );
+                    }
+                    var statistics = [];
+
+                    for (key of marksMap.keys()) {
+                        var currentArray = [];
+                        currentArray.push(key, marksMap.get(key));
+                        statistics.push(currentArray);
+                    }
+
+                    data.addRows(statistics);
+
+                    var options = {
+                        hAxis: {
+                            title: 'Даты'
+                        },
+                        vAxis: {
+                            title: 'Оценки'
+                        },
+                        series: {
+                            1: {curveType: 'function'}
+                        }
+                    };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                    chart.draw(data, options);
+                }
             }
     );
-    function drawCurveTypes() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'X');
-        data.addColumn('number', 'Средний балл за день');
-        var marksMap = new Map();
-        marks.forEach(function (mark) {
-            if (marksMap.has(mark.date)) {
-                marksMap.get(mark.date).push(mark.score);
-            } else {
-                marksMap.set(mark.date, []);
-                marksMap.get(mark.date).push(mark.score);
-            }
-        });
-        for (var key of marksMap.keys()) {
-            marksMap.set(key, (marksMap.get(key).reduce(function (a, b) {
-                        return a + b;
-                    })) / marksMap.get(key).length
-            );
-        }
-        var statistics = [];
-
-        for (key of marksMap.keys()) {
-            var currentArray = [];
-            currentArray.push(key, marksMap.get(key));
-            statistics.push(currentArray);
-        }
-
-        data.addRows(statistics);
-
-        var options = {
-            hAxis: {
-                title: 'Даты'
-            },
-            vAxis: {
-                title: 'Оценки'
-            },
-            series: {
-                1: {curveType: 'function'}
-            }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-    }
 </script>
 </body>
 </html>
